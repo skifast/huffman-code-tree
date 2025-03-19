@@ -1,3 +1,4 @@
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -26,7 +27,7 @@ public class FileIO {
 			
 			String line;
 			
-			while((line= br.readLine()) != null){
+			while((line= BoundedLineReader.readLine(br, 5_000_000)) != null){
 				//the files provided divide up the information at each character
 				String[] currentLine = line.split("");
 				//now there is an array of all of the characters in the file
@@ -77,7 +78,7 @@ public class FileIO {
 			
 			String line;
 			
-			while((line= br.readLine()) != null){
+			while((line= BoundedLineReader.readLine(br, 5_000_000)) != null){
 				//the files provided divide up the information at each space
 				String[] currentLine = line.split("");
 			
@@ -124,7 +125,7 @@ public class FileIO {
 			
 			String line;
 			
-			while((line= br.readLine()) != null){
+			while((line= BoundedLineReader.readLine(br, 5_000_000)) != null){
 				String newString = "";
 				
 					Node currentnode = heap.givenArray[0];
